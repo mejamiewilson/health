@@ -30,13 +30,15 @@ data.forEach(function(food) {
 
 //Calculate Pro Points
 var output = [];
+var i = 0;
 foods.forEach(function(food) {
   var C = parseFloat(food['Energy, total metabolisable (kcal)'].value);
   var S = parseFloat(food['Sugars, total'].value);
-  var F = parseFloat(food['Fat, total'].value);
+  var F = parseFloat(food['Fatty acids, total saturated'].value);
   var P = parseFloat(food['Protein, total; calculated from total nitrogen'].value);
   var Points = (C + (1 * 4 * S) + (1 * 9 * F) - (0.8 * 4 * P)) / 33;
   output.push({
+    index: i++,
     name: food['Food Name'].value,
     calories: C,
     sugar: S,
